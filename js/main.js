@@ -48,16 +48,26 @@
     const lines = $$('.hero__title .line > .line__in');
     const rest  = $$('.hero__inner .reveal-fade, .hero__foot .pull, .hero__socials a');
 
-    // clear the CSS pre-state so GSAP owns the transform.
-    // Scoped to the title's own lines — the glow is decorative and must
-    // never be masked, or it reads as a broken box behind the heading.
+    // belt-and-braces: whatever the timeline did, the resting state is an
+    // inline transform:none, so no mask can strand a line mid-word
+    const settle = () => {
+      lines.forEach(l => { l.style.transform = 'none'; l.style.opacity = '1'; });
+      $$('.hero__inner .reveal-fade').forEach(r => {
+        r.style.transform = 'none'; r.style.opacity = '1';
+      });
+    };
+
+    // the decorative glow is not a text mask — never transform it here
+    $$('.hero__glow').forEach(g => { g.style.opacity = ''; });
+
+    // clear the CSS pre-state so GSAP owns the transform
     lines.forEach(l => { l.style.opacity = ''; l.style.transform = ''; });
     rest.forEach(r => { r.style.opacity = ''; r.style.transform = ''; });
-    $$('.hero__glow').forEach(g => { g.style.opacity = ''; g.style.transform = ''; });
 
     if (!hasGSAP || reduced) {
       lines.forEach(l => l.classList.add('is-in'));
       rest.forEach(r => r.classList.add('is-in'));
+      settle();
       return;
     }
 
@@ -74,7 +84,8 @@
     .from($$('.hero__chips li'), { y: 16, opacity: 0, duration: 0.6, stagger: 0.06 }, '-=0.65')
     .from($$('.hero__actions .btn'), { y: 22, opacity: 0, duration: 0.7, stagger: 0.09 }, '-=0.55')
     .from($$('.hero__foot > *'), { y: 20, opacity: 0, duration: 0.7, stagger: 0.1 }, '-=0.5')
-    .from($$('.hero__socials a'), { scale: 0.7, opacity: 0, duration: 0.5, stagger: 0.05 }, '-=0.45');
+    .from($$('.hero__socials a'), { scale: 0.7, opacity: 0, duration: 0.5, stagger: 0.05 }, '-=0.45')
+    .add(settle);
   }
 
   /* 3. SMOOTH SCROLL */
@@ -118,6 +129,9 @@
   } else if (hasGSAP && hasST) {
     groups.forEach(sel => {
       $$(sel).forEach(el => {
+        // the hero owns its own on-load intro — skip it here so two tweens
+        // never stack on the same element
+        if (el.closest('.hero')) return;
         gsap.from(el, {
           y: 40, opacity: 0, duration: 1, ease: 'expo.out',
           scrollTrigger: { trigger: el, start: 'top 88%', once: true }
@@ -134,6 +148,10 @@
     });
 
     $$('.reveal-text').forEach(el => {
+      // the hero title runs its own intro timeline on load — animating it here
+      // too would stack two tweens on the same span and freeze it mid-mask
+      if (el.closest('.hero')) return;
+
       const inner = $$('.line__in', el);
       const targets = inner.length ? inner : [el];
       gsap.from(targets, {
@@ -146,6 +164,7 @@
       entries.forEach((entry, i) => {
         if (!entry.isIntersecting) return;
         const el = entry.target;
+        if (el.closest('.hero')) { el.classList.add('is-in'); io.unobserve(el); return; }
         el.style.transitionDelay = (i * 0.08) + 's';
         el.classList.add('is-in');
         io.unobserve(el);
@@ -503,6 +522,24 @@
       if (e.key === 'Escape') closeMenu();
     });
   })();
+
+  /* 13b. SAFETY NET
+     If the intro never runs (slow CDN, blocked script, thrown error),
+     the hero must not stay masked. Force the resting state. */
+  setTimeout(() => {
+    const stuck = $$('.hero__title .line > .line__in');
+    const isMoved = (el) => {
+      const t = getComputedStyle(el).transform;
+      return t !== 'none' && t !== 'matrix(1, 0, 0, 1, 0, 0)';
+    };
+    const anyHidden = stuck.some(l => getComputedStyle(l).opacity === '0');
+    if (stuck.some(isMoved) || anyHidden) {
+      stuck.forEach(l => { l.style.transform = 'none'; l.style.opacity = '1'; });
+      $$('.hero__inner .reveal-fade').forEach(r => {
+        r.style.transform = 'none'; r.style.opacity = '1';
+      });
+    }
+  }, 3000);
 
   /* 14. MISC */
   const yearEl = $('#year');
