@@ -1,0 +1,381 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Ahmed Hammoodi — Ninurta Tech. Company</title>
+<meta name="description" content="Ahmed Hammoodi, founder of Ninurta Tech. Company. Websites, stores, systems and admin panels.">
+<script>document.documentElement.classList.add('js');</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,400;0,600;0,900;1,400&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<!-- LOADER -->
+<div class="loader" id="loader">
+  <div class="loader__inner">
+    <div class="loader__brand">NINURTA&nbsp;TECH</div>
+    <div class="loader__bar"><i id="loaderBar"></i></div>
+    <div class="loader__pct"><span id="loaderPct">0</span>%</div>
+  </div>
+</div>
+
+<!-- CURSOR -->
+<div class="cursor" id="cursor" aria-hidden="true"></div>
+
+<!-- SCROLL PROGRESS -->
+<div class="progress" id="progress" aria-hidden="true"></div>
+
+<!-- HEADER -->
+<header class="header" id="header">
+  <a class="header__logo" href="#top">
+    <span class="header__mark">A.H</span>
+    <span class="header__name">Ahmed Hammoodi</span>
+  </a>
+
+  <nav class="header__nav" id="nav">
+    <a href="#top" data-nav>Home</a>
+    <a href="#work" data-nav>Work</a>
+    <a href="#services" data-nav>What I do</a>
+    <a href="#about" data-nav>About</a>
+    <a href="#contact" data-nav>Contact me</a>
+  </nav>
+
+  <a class="header__cta" href="#contact" data-magnetic>
+    <span>Start a project</span>
+    <span class="dot"></span>
+  </a>
+
+  <button class="burger" id="burger" aria-label="Menu" aria-expanded="false">
+    <span></span><span></span>
+  </button>
+</header>
+
+<!-- MOBILE MENU -->
+<div class="menu" id="menu">
+  <nav class="menu__nav">
+    <a href="#top">Home</a>
+    <a href="#work">Work</a>
+    <a href="#services">What I do</a>
+    <a href="#about">About</a>
+    <a href="#contact">Contact me</a>
+  </nav>
+  <div class="menu__foot">
+    <span>Ninurta Tech. Company</span>
+    <span>Baghdad · Iraq</span>
+  </div>
+</div>
+
+<main id="top">
+
+  <!-- MARQUEE -->
+  <div class="marquee" aria-hidden="true">
+    <div class="marquee__track">
+      <span>AHMED HAMMOODI</span><span class="sep">•</span>
+      <span>NINURTA TECH</span><span class="sep">•</span>
+      <span>AHMED HAMMOODI</span><span class="sep">•</span>
+      <span>NINURTA TECH</span><span class="sep">•</span>
+      <span>AHMED HAMMOODI</span><span class="sep">•</span>
+      <span>NINURTA TECH</span><span class="sep">•</span>
+    </div>
+  </div>
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="hero__glow" data-parallax="0.18"></div>
+
+    <div class="hero__inner">
+      <div class="hero__tag reveal-fade">
+        <span class="pulse"></span> Ninurta Tech. Company — Founder &amp; Developer
+      </div>
+
+      <h1 class="hero__title">
+        <span class="line"><span class="line__in">Ahmed</span></span>
+        <span class="line"><span class="line__in">Hammoodi</span></span>
+        <span class="line"><span class="line__in hero__italic"><em>Web</em> developer</span></span>
+      </h1>
+
+      <p class="hero__sub reveal-fade">
+        I design and build your whole site, from the first screen to the admin panel.
+      </p>
+
+      <ul class="hero__chips reveal-fade">
+        <li>Websites</li>
+        <li>Stores</li>
+        <li>Systems</li>
+        <li>Admin panels</li>
+      </ul>
+
+      <div class="hero__actions reveal-fade">
+        <a class="btn btn--solid" href="#work" data-magnetic><span>See my work</span></a>
+        <a class="btn btn--ghost" href="#contact" data-magnetic><span>Contact me</span></a>
+      </div>
+    </div>
+
+    <div class="hero__foot">
+      <a class="pull" href="#work">
+        <span>Pull me down</span>
+        <i class="pull__arrow"></i>
+      </a>
+      <div class="hero__socials">
+        <a href="https://wa.me/9647700000000" target="_blank" rel="noopener" aria-label="WhatsApp">WA</a>
+        <a href="https://t.me/" target="_blank" rel="noopener" aria-label="Telegram">TG</a>
+        <a href="https://www.instagram.com/" target="_blank" rel="noopener" aria-label="Instagram">IG</a>
+        <a href="https://www.linkedin.com/" target="_blank" rel="noopener" aria-label="LinkedIn">IN</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- WORK -->
+  <section class="work" id="work">
+    <div class="head">
+      <h2 class="head__title reveal-text">My work</h2>
+      <div class="head__meta">
+        <span class="counter-pill"><b id="workIdx">01</b> / <span id="workTotal">04</span></span>
+        <div class="head__arrows">
+          <button id="prev" aria-label="Previous project">←</button>
+          <button id="next" aria-label="Next project">→</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="slider" id="slider">
+      <div class="slider__viewport" id="viewport">
+        <div class="slider__track" id="track">
+
+          <article class="slide" data-title="Ninurta Commerce" data-desc="An online store built for a local brand — products, cart, and orders that land straight in WhatsApp. Fast, clean, and easy to run without a developer." data-tag="Store">
+            <div class="slide__top">
+              <span class="slide__num">01</span>
+              <span class="slide__tag">Store</span>
+            </div>
+            <div class="slide__body">
+              <h3>Ninurta Commerce</h3>
+              <p>Online store · products &amp; orders</p>
+            </div>
+            <div class="slide__foot"><span>View the site</span><i>↗</i></div>
+          </article>
+
+          <article class="slide" data-title="Al-Shifa Clinic" data-desc="A site for a clinic with doctor profiles, working hours and an online booking form. Patients book in under a minute; the clinic sees everything from one panel." data-tag="Website">
+            <div class="slide__top">
+              <span class="slide__num">02</span>
+              <span class="slide__tag">Website</span>
+            </div>
+            <div class="slide__body">
+              <h3>Al-Shifa Clinic</h3>
+              <p>Clinic site · online booking</p>
+            </div>
+            <div class="slide__foot"><span>View the site</span><i>↗</i></div>
+          </article>
+
+          <article class="slide" data-title="Ninurta POS" data-desc="A desktop program for pharmacies and shops. Prices, profits, stock, invoices and daily reports — running on more than three pharmacies today." data-tag="System">
+            <div class="slide__top">
+              <span class="slide__num">03</span>
+              <span class="slide__tag">System</span>
+            </div>
+            <div class="slide__body">
+              <h3>Ninurta POS</h3>
+              <p>Desktop program · pharmacies</p>
+            </div>
+            <div class="slide__foot"><span>Request a demo</span><i>↗</i></div>
+          </article>
+
+          <article class="slide" data-title="Ninurta Admin" data-desc="A control panel that lets you run your whole site yourself — add products, read orders, publish pages, no programmer needed." data-tag="Admin">
+            <div class="slide__top">
+              <span class="slide__num">04</span>
+              <span class="slide__tag">Admin</span>
+            </div>
+            <div class="slide__body">
+              <h3>Ninurta Admin</h3>
+              <p>Control panel · full control</p>
+            </div>
+            <div class="slide__foot"><span>See how it works</span><i>↗</i></div>
+          </article>
+
+        </div>
+      </div>
+    </div>
+
+    <p class="work__hint reveal-fade">Drag the slider — or use the arrows</p>
+  </section>
+
+  <!-- SERVICES -->
+  <section class="services" id="services">
+    <div class="head head--center">
+      <h2 class="head__title reveal-text">What I can build for you</h2>
+      <p class="head__sub reveal-fade">From a single page to a full system that runs your business.</p>
+    </div>
+
+    <div class="cards">
+      <article class="card tilt reveal-card">
+        <span class="card__tag">WEB</span>
+        <h3>Websites</h3>
+        <p>Companies, clinics, restaurants, or anything you have in mind.</p>
+        <span class="card__glow"></span>
+      </article>
+      <article class="card tilt reveal-card">
+        <span class="card__tag">STORE</span>
+        <h3>Stores</h3>
+        <p>Products, a cart, and orders that reach you directly.</p>
+        <span class="card__glow"></span>
+      </article>
+      <article class="card tilt reveal-card">
+        <span class="card__tag">SYSTEM</span>
+        <h3>Systems</h3>
+        <p>Bookings, stock, invoices and customers.</p>
+        <span class="card__glow"></span>
+      </article>
+      <article class="card tilt reveal-card">
+        <span class="card__tag">ADMIN</span>
+        <h3>Admin panels</h3>
+        <p>Run your site yourself, no programmer needed.</p>
+        <span class="card__glow"></span>
+      </article>
+      <article class="card tilt reveal-card">
+        <span class="card__tag">WOW</span>
+        <h3>Interactive</h3>
+        <p>A site that feels alive, one people talk about.</p>
+        <span class="card__glow"></span>
+      </article>
+      <article class="card tilt reveal-card">
+        <span class="card__tag">UPGRADE</span>
+        <h3>Upgrades</h3>
+        <p>We make your old site stronger.</p>
+        <span class="card__glow"></span>
+      </article>
+    </div>
+  </section>
+
+  <!-- ABOUT -->
+  <section class="about" id="about">
+    <div class="about__grid">
+      <div class="about__lead">
+        <span class="eyebrow reveal-fade">About me</span>
+        <h2 class="reveal-text">Ahmed Hammoodi, founder of <em>Ninurta Tech. Company</em> — a developer who builds the whole thing, not just the front door.</h2>
+        <p class="reveal-fade">
+          I work from design and user experience all the way to launching your site online.
+          One person, one line of responsibility — so nothing gets lost between a designer,
+          a developer and a host.
+        </p>
+      </div>
+
+      <div class="about__stats">
+        <div class="stat reveal-card">
+          <div class="stat__num"><span data-count="40">0</span><i>+</i></div>
+          <div class="stat__label">Projects delivered</div>
+        </div>
+        <div class="stat reveal-card">
+          <div class="stat__num"><span data-count="3">0</span><i>+</i></div>
+          <div class="stat__label">Years building for the web</div>
+        </div>
+        <div class="stat reveal-card">
+          <div class="stat__num"><span data-count="100">0</span><i>%</i></div>
+          <div class="stat__label">Replies within a day</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- WHY — HORIZONTAL -->
+  <section class="why" id="why">
+    <div class="why__pin">
+      <div class="why__head">
+        <h2 class="reveal-text">Why work with me?</h2>
+        <span class="counter-pill"><b id="whyIdx">01</b> / <span>05</span></span>
+      </div>
+
+      <div class="why__track" id="whyTrack">
+
+        <article class="why__panel">
+          <span class="why__num">01</span>
+          <h3>Everything,<br>in one place</h3>
+          <p>From design and user experience to launching your site online — I take care of all of it.</p>
+          <ul class="why__tags"><li>Design</li><li>Development</li><li>Domain</li><li>Hosting</li></ul>
+        </article>
+
+        <article class="why__panel">
+          <span class="why__num">02</span>
+          <h3>Try the sites<br>I've built</h3>
+          <p>See the work in front of you to know the level of quality and user experience you're getting.</p>
+          <ul class="why__tags"><li>Live demos</li></ul>
+        </article>
+
+        <article class="why__panel">
+          <span class="why__num">03</span>
+          <h3>Seen a site<br>you like?</h3>
+          <p>Send it to me and I'll build the same idea in your colours and brand, and refine it until your site stands out.</p>
+          <ul class="why__tags"><li>Your brand</li><li>Your colours</li></ul>
+        </article>
+
+        <article class="why__panel">
+          <span class="why__num">04</span>
+          <h3>You have to<br>love the result</h3>
+          <p>We pick every detail together, your way, and keep refining until you love it.</p>
+          <ul class="why__tags"><li>Colour</li><li>Font</li><li>Photos</li><li>Layout</li></ul>
+        </article>
+
+        <article class="why__panel">
+          <span class="why__num">05</span>
+          <h3>Competitive pricing,<br>real support</h3>
+          <p>Fair pricing for the quality you get, fast replies, and ongoing technical support after launch.</p>
+          <ul class="why__tags"><li>Fast replies</li><li>Ongoing support</li></ul>
+        </article>
+
+      </div>
+
+      <div class="why__bar"><i id="whyBar"></i></div>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section class="contact" id="contact">
+    <div class="contact__glow" data-parallax="0.12"></div>
+
+    <div class="head head--center">
+      <span class="eyebrow reveal-fade">Contact me</span>
+      <h2 class="head__title reveal-text">Got an idea?<br>Let's build it.</h2>
+      <p class="head__sub reveal-fade">Tap any card to open my account.</p>
+    </div>
+
+    <div class="posters">
+      <a class="poster reveal-card" href="https://wa.me/9647700000000" target="_blank" rel="noopener" data-magnetic>
+        <span class="poster__k">WhatsApp</span>
+        <span class="poster__v">+964 770 000 0000</span>
+        <span class="poster__a">↗</span>
+      </a>
+      <a class="poster reveal-card" href="https://t.me/" target="_blank" rel="noopener" data-magnetic>
+        <span class="poster__k">Telegram</span>
+        <span class="poster__v">@ahmedhammoodi</span>
+        <span class="poster__a">↗</span>
+      </a>
+      <a class="poster reveal-card" href="https://www.instagram.com/" target="_blank" rel="noopener" data-magnetic>
+        <span class="poster__k">Instagram</span>
+        <span class="poster__v">@ninurta.tech</span>
+        <span class="poster__a">↗</span>
+      </a>
+      <a class="poster reveal-card" href="mailto:hello@ninurtatech.com" data-magnetic>
+        <span class="poster__k">Email</span>
+        <span class="poster__v">hello@ninurtatech.com</span>
+        <span class="poster__a">↗</span>
+      </a>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="footer__row">
+      <span>Ahmed Hammoodi — Ninurta Tech. Company</span>
+      <span>© <span id="year">2026</span> · All rights reserved</span>
+      <a href="#top" class="footer__top">Back to top ↑</a>
+    </div>
+  </footer>
+
+</main>
+
+<script src="https://cdn.jsdelivr.net/npm/lenis@1.1.14/dist/lenis.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js"></script>
+<script src="js/main.js"></script>
+</body>
+</html>
