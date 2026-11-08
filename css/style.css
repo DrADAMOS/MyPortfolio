@@ -281,16 +281,25 @@ ul{list-style:none}
 }
 
 .hero__title{
-  font-size:clamp(46px,10.5vw,148px);
+  /* sized so the longest line ("Hammoodi") still fits the viewport width */
+  font-size:clamp(40px,9vw,132px);
   font-weight:900;
-  line-height:.88;
+  line-height:.9;
   letter-spacing:-.045em;
   margin-bottom:clamp(24px,4vh,40px);
 }
-.hero__title .line{display:block;overflow:hidden;padding-bottom:.06em}
+.hero__title .line{
+  display:block;
+  overflow:hidden;
+  /* descenders need breathing room or the clip cuts "y"/"g" tails */
+  padding-bottom:.1em;
+  margin-bottom:-.04em;
+}
 .hero__title .line__in{
   display:block;
+  /* JS animates these; CSS supplies the resting state */
   will-change:transform;
+  transform:translateZ(0);
 }
 .hero__italic em{
   font-style:italic;font-weight:400;

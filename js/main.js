@@ -45,11 +45,15 @@
 
   /* 2. HERO INTRO */
   function heroIntro() {
-    const lines = $$('.hero__title .line__in');
+    const lines = $$('.hero__title .line > .line__in');
     const rest  = $$('.hero__inner .reveal-fade, .hero__foot .pull, .hero__socials a');
 
+    // clear the CSS pre-state so GSAP owns the transform.
+    // Scoped to the title's own lines — the glow is decorative and must
+    // never be masked, or it reads as a broken box behind the heading.
     lines.forEach(l => { l.style.opacity = ''; l.style.transform = ''; });
     rest.forEach(r => { r.style.opacity = ''; r.style.transform = ''; });
+    $$('.hero__glow').forEach(g => { g.style.opacity = ''; g.style.transform = ''; });
 
     if (!hasGSAP || reduced) {
       lines.forEach(l => l.classList.add('is-in'));
@@ -60,7 +64,7 @@
     const tl = gsap.timeline({ defaults: { ease: 'expo.out' } });
 
     tl.from(lines, {
-      yPercent: 108,
+      yPercent: 105,
       opacity: 0,
       duration: 1.25,
       stagger: 0.1
